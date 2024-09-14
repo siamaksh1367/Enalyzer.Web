@@ -77,3 +77,10 @@ export const HoverEffect = css`
     opacity: 0.7; /* Adjust opacity for the fade effect */
   }
 `;
+
+export const Disable = css`
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+`;

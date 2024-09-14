@@ -30,7 +30,7 @@ export const BackgroundSecondary = css`
 `;
 
 const Border = css`
-  border: 1px solid;
+  border: 1.5px solid;
 `;
 export const BorderPrimary = css`
   ${Border}

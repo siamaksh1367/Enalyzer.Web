@@ -3,14 +3,17 @@ import withdrawalService, { Withdrawal } from "../services/WithdrawalService";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
+export interface WithdrawalQuery {
+  amount: number;
+}
 const useWithdrawal = () => {
   const navigate = useNavigate();
 
-  return useMutation<Withdrawal[], Error, number>({
+  return useMutation<Withdrawal[], Error, WithdrawalQuery>({
     mutationFn: withdrawalService.post,
 
-    onSuccess: () => {
-      navigate("/result");
+    onSuccess: (data) => {
+      navigate("/result", { state: data });
     },
 
     onError: (error: Error) => {

@@ -1,4 +1,5 @@
 import APIClient from "../ApiClient";
+import { WithdrawalQuery } from "../hooks/useWithdrawal";
 
 export interface Withdrawal {
   value: number;
@@ -6,4 +7,4 @@ export interface Withdrawal {
   location: number;
 }
 
-export default new APIClient<number, Withdrawal[]>("/withdrawal");
+export default new APIClient<WithdrawalQuery, Withdrawal[]>("/withdrawal");

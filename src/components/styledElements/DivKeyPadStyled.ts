@@ -1,8 +1,8 @@
 import { styled } from "styled-components";
 
-const KeyPadDivStyled = styled.div`
+const DivKeyPadStyled = styled.div`
   width: 300px;
   min-width: 300px;
 `;
 
-export default KeyPadDivStyled;
+export default DivKeyPadStyled;

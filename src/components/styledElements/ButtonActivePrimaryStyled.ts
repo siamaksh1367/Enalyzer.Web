@@ -10,9 +10,9 @@ import {
   HoverEffect,
 } from "../../styles/ThemeMixin";
 import { SmallFont } from "../../styles/ThemeMixin";
-import { ColorSecondary } from "./../../styles/ThemeMixin";
+import { ColorSecondary } from "../../styles/ThemeMixin";
 
-const ActiveButtonPrimary = styled.button<{ $active?: boolean }>`
+const ButtonActivePrimaryStyled = styled.button<{ $active?: boolean }>`
   ${({ $active }) => ($active ? BackgroundSecondary : BackgroundPrimary)};
   ${({ $active }) => ($active ? ColorSecondary : ColorPrimary)};
   ${({ $active }) => ($active ? BorderPrimary : BorderSecondary)};
@@ -22,4 +22,4 @@ const ActiveButtonPrimary = styled.button<{ $active?: boolean }>`
   ${Disable}
 `;
 
-export default ActiveButtonPrimary;
+export default ButtonActivePrimaryStyled;

@@ -1,5 +1,5 @@
 import RoundButton from "./RoundButton";
-import KeyPadDivStyled from "./styledElements/KeyPadDivStyled";
+import DivKeyPadStyled from "./styledElements/DivKeyPadStyled";
 import useAmountStore from "../stateHooks/useAmountStore";
 import ImageButton from "./ImageButton";
 
@@ -18,7 +18,7 @@ function KeyPad() {
 
   return (
     <div className="container d-flex justify-content-center align-items-start mt-5">
-      <KeyPadDivStyled className="row m-5">
+      <DivKeyPadStyled className="row m-5">
         {numbers.map((number) => (
           <div className="col-4 p-1 m-0" key={number}>
             <RoundButton clickHandler={modifyAmount(number)}>
@@ -28,7 +28,7 @@ function KeyPad() {
             </RoundButton>
           </div>
         ))}
-      </KeyPadDivStyled>
+      </DivKeyPadStyled>
     </div>
   );
 }

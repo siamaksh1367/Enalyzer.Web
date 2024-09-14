@@ -1,5 +1,5 @@
 import { MouseEventHandler, ReactNode } from "react";
-import RoundButtonPrimaryStyled from "./styledElements/RoundButtonPrimaryStyled";
+import ButtonRoundPrimaryStyled from "./styledElements/ButtonRoundPrimaryStyled";
 
 interface RoundButtonProps {
   children: ReactNode;
@@ -7,12 +7,12 @@ interface RoundButtonProps {
 }
 function RoundButton({ children, clickHandler }: RoundButtonProps) {
   return (
-    <RoundButtonPrimaryStyled
+    <ButtonRoundPrimaryStyled
       onClick={clickHandler}
       className="rounded-circle m-1"
     >
       {children}
-    </RoundButtonPrimaryStyled>
+    </ButtonRoundPrimaryStyled>
   );
 }
 

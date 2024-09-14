@@ -10,7 +10,13 @@ const SpanStyled = styled.span<{ $isLarge?: boolean }>`
   ${ColorPrimary}
   ${Bold}
   ${({ $isLarge }) => ($isLarge ? LargeFont : SmallFont)};
-  dis
+  display: inline-block;
+  @media (max-width: 576px) {
+    display: block;
+    width: 100%;
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
 `;
 
 export default SpanStyled;

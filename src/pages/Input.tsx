@@ -1,7 +1,7 @@
-import React from "react";
+import AmountForm from "../components/AmountForm";
 
 function Input() {
-  return <div>Input</div>;
+  return <AmountForm />;
 }
 
 export default Input;

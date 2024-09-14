@@ -3,7 +3,7 @@ import GlobalStyle from "./styles/GlobalStyle";
 import { Primary } from "./styles/ThemeMixin";
 import { ToastContainer } from "react-toastify";
 import { RouterProvider } from "react-router-dom";
-import router from "./router/Routse";
+import router from "./router/Routes";
 
 function App() {
   return (

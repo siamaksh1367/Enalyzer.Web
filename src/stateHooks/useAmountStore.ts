@@ -2,22 +2,19 @@ import { create } from "zustand";
 
 // Define the store's state interface
 interface AmountStore {
-  amount: string;
-  addDigit: (char: string) => void;
+  amount: number;
+  addDigit: (digit: number) => void;
   removeDigit: () => void;
 }
 
 const useAmountStore = create<AmountStore>((set) => ({
-  amount: "",
+  amount: 0,
 
-  addDigit: (char) =>
-    set((state) => ({
-      amount: state.amount + char,
-    })),
+  addDigit: (digit) => set((state) => ({ amount: state.amount * 10 + digit })),
 
   removeDigit: () =>
     set((state) => ({
-      amount: state.amount.slice(0, -1),
+      amount: Math.floor(state.amount / 10),
     })),
 }));
 

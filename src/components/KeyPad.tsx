@@ -1,6 +1,6 @@
 import RoundButton from "./RoundButton";
 import KeyPadDivStyled from "./styledElements/KeyPadDivStyled";
-import useAmountStore from "../stateHooks/useAmount";
+import useAmountStore from "../stateHooks/useAmountStore";
 import ImageButton from "./ImageButton";
 
 function KeyPad() {
@@ -10,13 +10,15 @@ function KeyPad() {
 
   const modifyAmount = (number: number) => {
     return () => {
-      number === 10 ? addDigit(number.toString()) : removeDigit();
+      number !== 10 && number !== 11 && addDigit(number);
+      number === 11 && addDigit(0);
+      number === 10 && removeDigit();
     };
   };
 
   return (
-    <div className="container">
-      <KeyPadDivStyled className="row d-flex justify-content-start ">
+    <div className="container d-flex justify-content-center align-items-start mt-5">
+      <KeyPadDivStyled className="row m-5">
         {numbers.map((number) => (
           <div className="col-4 p-1 m-0" key={number}>
             <RoundButton clickHandler={modifyAmount(number)}>

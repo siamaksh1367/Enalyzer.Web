@@ -1,14 +1,16 @@
 import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./styles/GlobalStyle";
 import { Primary } from "./styles/ThemeMixin";
-import KeyPad from "./components/KeyPad";
+import AmountForm from "./components/AmountForm";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <ThemeProvider theme={Primary}>
       <GlobalStyle />
-      <h1>Hello</h1>
-      <KeyPad />
+      <ToastContainer />
+
+      <AmountForm />
     </ThemeProvider>
   );
 }

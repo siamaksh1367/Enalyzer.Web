@@ -1,6 +1,8 @@
 import { create } from "zustand";
+import { toast } from "react-toastify";
 
-// Define the store's state interface
+const MAX_SAFE_INTEGER = Number.MAX_SAFE_INTEGER;
+
 interface AmountStore {
   amount: number;
   addDigit: (digit: number) => void;
@@ -10,7 +12,17 @@ interface AmountStore {
 const useAmountStore = create<AmountStore>((set) => ({
   amount: 0,
 
-  addDigit: (digit) => set((state) => ({ amount: state.amount * 10 + digit })),
+  addDigit: (digit) =>
+    set((state) => {
+      const newAmount = state.amount * 10 + digit;
+
+      if (newAmount <= MAX_SAFE_INTEGER) {
+        return { amount: newAmount };
+      } else {
+        toast.error("Maximum number size exceeded!");
+        return state;
+      }
+    }),
 
   removeDigit: () =>
     set((state) => ({

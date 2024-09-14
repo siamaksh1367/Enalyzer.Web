@@ -8,7 +8,7 @@ import {
 } from "../../styles/ThemeMixin";
 import { SmallFont } from "../../styles/ThemeMixin";
 
-const ButtonPrimaryStyled = styled.button`
+const RoundButtonPrimaryStyled = styled.button`
   ${BackgroundPrimary}
   ${ColorPrimary}
   ${SmallFont}
@@ -17,4 +17,4 @@ const ButtonPrimaryStyled = styled.button`
   ${HoverEffect}
 `;
 
-export default ButtonPrimaryStyled;
+export default RoundButtonPrimaryStyled;

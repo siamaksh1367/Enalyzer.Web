@@ -1,13 +1,14 @@
 import Category from "./Category";
 import DivStyled from "./styledElements/DivStyled";
-import NoteImage from "./../assets/500-bill.png";
+
 import { Withdrawal } from "../apiServices/services/WithdrawalService";
 
 interface Notes {
   notes: Withdrawal[];
+  imageSource: string;
 }
 
-function Notes({ notes }: Notes) {
+function Notes({ notes, imageSource }: Notes) {
   return (
     <DivStyled className="d-flex flex-column justify-content-center align-align-items-center">
       {notes.map((x) => (
@@ -15,7 +16,7 @@ function Notes({ notes }: Notes) {
           key={x.quantity * x.value}
           quantity={x.quantity}
           value={x.value}
-          imageSource={NoteImage}
+          imageSource={imageSource}
           contrast={true}
         />
       ))}

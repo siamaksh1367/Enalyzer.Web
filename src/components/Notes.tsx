@@ -12,6 +12,7 @@ function Notes({ notes }: Notes) {
     <DivStyled className="d-flex flex-column justify-content-center align-align-items-center">
       {notes.map((x) => (
         <Category
+          key={x.quantity * x.value}
           quantity={x.quantity}
           value={x.value}
           imageSource={NoteImage}

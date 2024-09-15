@@ -1,7 +1,7 @@
 import { MouseEvent, useEffect } from "react";
 import BaseButton from "./BaseButton";
 import KeyPad from "./KeyPad";
-import SpanStyled from "./styledElements/SpanStyled";
+import SpanStyledWithWrap from "./styledElements/SpanStyledWithWrap";
 import ValuePresenter from "./ValuePresenter";
 import useWithdrawal, {
   WithdrawalQuery,
@@ -23,9 +23,9 @@ function AmountForm() {
   }
   return (
     <div className="d-flex flex-column justify-content-center align-items-center">
-      <SpanStyled $isLarge={false} className="m-5 text-center">
+      <SpanStyledWithWrap $isLarge={false} className="m-5 text-center">
         Select Amount
-      </SpanStyled>
+      </SpanStyledWithWrap>
       <ValuePresenter></ValuePresenter>
       <KeyPad></KeyPad>
       <BaseButton clickHandler={calculateWithdrawal}>Submit</BaseButton>

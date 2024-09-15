@@ -24,7 +24,7 @@ function KeyPad() {
             <RoundButton clickHandler={modifyAmount(number)}>
               {number === 11 && 0}
               {number !== 11 && number !== 10 && number}
-              {number === 10 && <ImageButton></ImageButton>}
+              {number === 10 && <ImageButton />}
             </RoundButton>
           </div>
         ))}

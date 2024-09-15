@@ -1,26 +1,90 @@
-import DivStyled from "../components/styledElements/DivStyled";
-import { useLocation } from "react-router-dom";
-import Notes from "./../components/Notes";
-import { Withdrawal } from "./../apiServices/services/WithdrawalService";
+import { MouseEvent, useEffect } from "react";
+import RoundButton from "../components/RoundButton";
+import SpanStyledWithWrap from "../components/styledElements/SpanStyledWithWrap";
+import ValuePresenter from "../components/ValuePresenter";
+import Withdrawals from "../components/Withdrawals";
+import useResultStore from "./../stateHooks/useResultStore";
+import { useLocation, useNavigate } from "react-router-dom";
+import ImageButton from "../components/ImageButton";
+import { Withdrawal } from "../apiServices/services/WithdrawalService";
 
 function Result() {
+  const { isResultReady, setResultReady } = useResultStore();
+  const navigate = useNavigate();
   const location = useLocation();
   const state = location.state as Withdrawal[];
 
-  return (
-    <DivStyled className="container">
-      <div className="row">
-        <div className="col-4">
-          {<Notes notes={state.filter((x) => x.location === 1)} />}
-        </div>
-        <div className="col-4">
-          {<Notes notes={state.filter((x) => x.location === 2)} />}
-        </div>
-        <div className="col-4">
-          {<Notes notes={state.filter((x) => x.location === 3)} />}
+  const goToInput = () => {
+    navigate("/input");
+  };
+
+  useEffect(() => {
+    return () => {
+      setResultReady(false);
+    };
+  }, []);
+
+  if (!isResultReady && !state) {
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col text-center">
+            <SpanStyledWithWrap
+              $isLarge={false}
+              $isBold={true}
+              className="m-5 text-center"
+            >
+              The content should be generated first. Please visit input page
+            </SpanStyledWithWrap>
+            <RoundButton clickHandler={goToInput}>
+              <ImageButton />
+            </RoundButton>
+          </div>
         </div>
       </div>
-    </DivStyled>
+    );
+  }
+  return (
+    <div className="container mt-5 pt-5 ">
+      <div className="row mt-5 position-relative">
+        <div className="col text-center">
+          <SpanStyledWithWrap
+            $isLarge={false}
+            $isBold={true}
+            className=" text-center"
+          >
+            Depositing
+          </SpanStyledWithWrap>
+        </div>
+        <div className="position-absolute top-0 start-0 ">
+          <RoundButton clickHandler={goToInput}>
+            <ImageButton />
+          </RoundButton>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col text-center">
+          <ValuePresenter></ValuePresenter>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col text-center">
+          <Withdrawals Withdrawals={state} />
+        </div>
+      </div>
+      <div className="row">
+        <div className="col">
+          <SpanStyledWithWrap
+            $isLarge={false}
+            $isBold={true}
+            className="d-flex flex-column justify-content-center m-5 text-center"
+          >
+            <span>Thank you for using</span>
+            <span>Enalyzer ATM</span>
+          </SpanStyledWithWrap>
+        </div>
+      </div>
+    </div>
   );
 }
 

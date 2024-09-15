@@ -1,13 +1,17 @@
 import useAmountStore from "../stateHooks/useAmountStore";
-import SpanStyled from "./styledElements/SpanStyled";
+import SpanStyledWithWrap from "./styledElements/SpanStyledWithWrap";
 
 function ValuePresenter() {
   const { amount } = useAmountStore();
 
   return (
-    <SpanStyled className="text-center mt-5" $isLarge={true}>
+    <SpanStyledWithWrap
+      className="text-center mt-5"
+      $isLarge={true}
+      $isBold={true}
+    >
       £ {amount}
-    </SpanStyled>
+    </SpanStyledWithWrap>
   );
 }
 

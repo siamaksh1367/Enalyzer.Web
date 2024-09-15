@@ -1,6 +1,5 @@
 import DivStyled from "./styledElements/DivStyled";
 import SpanStyled from "./styledElements/SpanStyled";
-import ImageThemeStyled from "./styledElements/ImageThemeStyled";
 
 export interface CategoryProps {
   quantity: number;
@@ -8,15 +7,21 @@ export interface CategoryProps {
   imageSource: string;
   contrast: boolean;
 }
-function Category({ value, quantity, imageSource, contrast }: CategoryProps) {
+function Category({ value, quantity, imageSource }: CategoryProps) {
   return (
-    <DivStyled className="d-flex flex-row justify-content-around align-items-center">
-      <ImageThemeStyled
-        src={imageSource}
-        $contrast={contrast}
-      ></ImageThemeStyled>
-      <SpanStyled>
-        {quantity} x {value}
+    <DivStyled
+      $hasBorder={true}
+      className="border-1 p-4 d-flex flex-column flex-xxl-row justify-content-around align-items-center"
+    >
+      <img className="flex-grow-0" src={imageSource}></img>
+      <SpanStyled
+        className="d-flex flex-column flex-sm-row flex-md-column flex-xl-row justify-content-center align-items-center text-center text-nowrap fs flex-grow-1"
+        $isLarge={false}
+        $isBold={false}
+      >
+        <div className="m-0 p-0">{quantity}</div>
+        <div className="m-0 p-0">x</div>
+        <div className="m-0 p-0">{value}</div>
       </SpanStyled>
     </DivStyled>
   );

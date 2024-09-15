@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import SpanStyled from "../components/styledElements/SpanStyled";
+import SpanStyledWithWrap from "../components/styledElements/SpanStyledWithWrap";
 
 function Splash() {
   const navigate = useNavigate();
@@ -15,8 +15,8 @@ function Splash() {
 
   return (
     <div className="vh-100 vw-100 flex-column d-flex justify-content-center align-items-center">
-      <SpanStyled $isLarge={true}>Enalyzer</SpanStyled>
-      <SpanStyled $isLarge={true}>ATM</SpanStyled>
+      <SpanStyledWithWrap $isLarge={true}>Enalyzer</SpanStyledWithWrap>
+      <SpanStyledWithWrap $isLarge={true}>ATM</SpanStyledWithWrap>
     </div>
   );
 }

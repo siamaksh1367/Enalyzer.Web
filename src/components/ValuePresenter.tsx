@@ -1,9 +1,10 @@
-import useAmountStore from "../stateHooks/useAmountStore";
 import SpanStyledWithWrap from "./styledElements/SpanStyledWithWrap";
 
-function ValuePresenter() {
-  const { amount } = useAmountStore();
+interface ValuePresenterProps {
+  amount: number;
+}
 
+function ValuePresenter({ amount }: ValuePresenterProps) {
   return (
     <SpanStyledWithWrap
       className="text-center mt-5"

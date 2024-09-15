@@ -26,7 +26,7 @@ function AmountForm() {
       <SpanStyledWithWrap $isLarge={false} className="m-5 text-center">
         Select Amount
       </SpanStyledWithWrap>
-      <ValuePresenter></ValuePresenter>
+      <ValuePresenter amount={amount}></ValuePresenter>
       <KeyPad></KeyPad>
       <BaseButton clickHandler={calculateWithdrawal}>Submit</BaseButton>
     </div>

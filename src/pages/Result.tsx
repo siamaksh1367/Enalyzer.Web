@@ -7,11 +7,13 @@ import useResultStore from "./../stateHooks/useResultStore";
 import { useLocation, useNavigate } from "react-router-dom";
 import ImageButton from "../components/ImageButton";
 import { Withdrawal } from "../apiServices/services/WithdrawalService";
+import useAmountStore from "../stateHooks/useAmountStore";
 
 function Result() {
   const { isResultReady, setResultReady } = useResultStore();
   const navigate = useNavigate();
   const location = useLocation();
+  const { amount } = useAmountStore();
   const state = location.state as Withdrawal[];
 
   const goToInput = () => {
@@ -22,7 +24,7 @@ function Result() {
     return () => {
       setResultReady(false);
     };
-  }, []);
+  }, [amount]);
 
   if (!isResultReady && !state) {
     return (
@@ -64,7 +66,7 @@ function Result() {
       </div>
       <div className="row">
         <div className="col text-center">
-          <ValuePresenter></ValuePresenter>
+          <ValuePresenter amount={amount} />
         </div>
       </div>
       <div className="row">

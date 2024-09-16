@@ -2,7 +2,7 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./styles/GlobalStyle";
 import { Primary } from "./styles/ThemeMixin";
 import { toast, ToastContainer } from "react-toastify";
-import { RouterProvider, useNavigate } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import router from "./router/Routes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ErrorBoundary } from "react-error-boundary";

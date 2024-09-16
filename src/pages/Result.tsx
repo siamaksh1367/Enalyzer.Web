@@ -1,4 +1,4 @@
-import { MouseEvent, useEffect } from "react";
+import { useEffect } from "react";
 import RoundButton from "../components/RoundButton";
 import SpanStyledWithWrap from "../components/styledElements/SpanStyledWithWrap";
 import ValuePresenter from "../components/ValuePresenter";

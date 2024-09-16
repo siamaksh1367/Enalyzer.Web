@@ -1,6 +1,6 @@
 import ButtonActivePrimaryStyled from "./styledElements/ButtonActivePrimaryStyled";
 import useAmountStore from "../stateHooks/useAmountStore";
-import { MouseEventHandler, ReactNode } from "react";
+import { ReactNode } from "react";
 
 interface BaseButtonProps {
   children: ReactNode;

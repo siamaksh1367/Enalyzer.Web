@@ -1,4 +1,4 @@
-import { MouseEvent, useEffect } from "react";
+import { useEffect } from "react";
 import BaseButton from "./BaseButton";
 import KeyPad from "./KeyPad";
 import SpanStyledWithWrap from "./styledElements/SpanStyledWithWrap";

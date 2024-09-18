@@ -6,6 +6,7 @@ function Splash() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    document.title = "Welcome";
     const timer = setTimeout(() => {
       navigate("/input");
     }, 3000);

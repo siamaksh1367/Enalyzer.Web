@@ -21,6 +21,7 @@ function Result() {
   };
 
   useEffect(() => {
+    document.title = "Result";
     return () => {
       setResultReady(false);
     };
